@@ -11,6 +11,12 @@ Feel free to use this rest java skeleton. Sometimes is hard to make depencencies
 
 - The persistence is decoupled from the database, you can save your data on every database you want, in AppSettings is declarated the Repository factory that PersistenceContext instantiates in runtime using reflection.
 
+##Run
+
+- If you dont't use netbeans, but have maven, enter in project folder, run the command: mvn package
+- Enter in target/app/ folder and run: java -jar app.jar
+
+
 ##Example
 
 Run the main and use your browser http://localhost:8080/actor you will see the result.
