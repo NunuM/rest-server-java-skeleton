@@ -8,11 +8,9 @@ import com.company.domain.ActorDTO;
 import com.company.domain.Movie;
 import com.company.domain.MovieDTO;
 import com.company.framework.RESTServer.HTTPRestServer;
-import com.sun.istack.internal.logging.Logger;
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
 import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -78,7 +76,7 @@ public class MovieApp {
 
         } catch (Exception e) {
             System.out.println(e);
-            Logger.getLogger(MovieApp.class).log(Level.SEVERE, "Something went wrong ", e);
+            Logger.getLogger(MovieApp.class.getName()).log(Level.SEVERE, "Something went wrong ", e);
         }
 
     }

@@ -1115,3 +1115,39 @@ SELECT ID FROM ACTOR WHERE ID <> ID [42102-191]
 2016-06-18 18:50:53 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "MOVIE" not found; SQL statement:
 SELECT ID FROM MOVIE WHERE ID <> ID [42102-191]
+2016-06-18 19:43:36 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "ACTOR" not found; SQL statement:
+SELECT ID FROM ACTOR WHERE ID <> ID [42102-191]
+2016-06-18 19:43:36 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "MOVIE" not found; SQL statement:
+SELECT ID FROM MOVIE WHERE ID <> ID [42102-191]
+2016-06-18 19:47:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "ACTOR" not found; SQL statement:
+SELECT ID FROM ACTOR WHERE ID <> ID [42102-191]
+2016-06-18 19:47:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "MOVIE" not found; SQL statement:
+SELECT ID FROM MOVIE WHERE ID <> ID [42102-191]
+2016-06-18 19:48:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "ACTOR" not found; SQL statement:
+SELECT ID FROM ACTOR WHERE ID <> ID [42102-191]
+2016-06-18 19:48:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "MOVIE" not found; SQL statement:
+SELECT ID FROM MOVIE WHERE ID <> ID [42102-191]
+2016-06-18 19:56:16 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "ACTOR" not found; SQL statement:
+SELECT ID FROM ACTOR WHERE ID <> ID [42102-191]
+2016-06-18 19:56:16 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "MOVIE" not found; SQL statement:
+SELECT ID FROM MOVIE WHERE ID <> ID [42102-191]
+2016-06-18 19:59:01 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "ACTOR" not found; SQL statement:
+SELECT ID FROM ACTOR WHERE ID <> ID [42102-191]
+2016-06-18 19:59:01 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "MOVIE" not found; SQL statement:
+SELECT ID FROM MOVIE WHERE ID <> ID [42102-191]
+2016-06-18 20:07:56 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "ACTOR" not found; SQL statement:
+SELECT ID FROM ACTOR WHERE ID <> ID [42102-191]
+2016-06-18 20:07:56 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "MOVIE" not found; SQL statement:
+SELECT ID FROM MOVIE WHERE ID <> ID [42102-191]

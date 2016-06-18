@@ -7,9 +7,9 @@ package com.company.rest.facades;
 
 import com.company.application.ActorManagementController;
 import com.company.domain.ActorDTO;
-import com.sun.istack.internal.logging.Logger;
 import java.util.List;
 import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -42,7 +42,7 @@ public class ActorFacade {
             return Response.ok(entity).build();
 
         } catch (Exception ex) {
-            Logger.getLogger(ActorFacade.class).log(Level.SEVERE,
+            Logger.getLogger(ActorFacade.class.getName()).log(Level.SEVERE,
                     "Unable to return list of actors due the following error:", ex);
 
             return Response.ok(ERROR_MSG).build();
@@ -61,7 +61,7 @@ public class ActorFacade {
             return Response.ok().build();
 
         } catch (Exception ex) {
-            Logger.getLogger(ActorFacade.class).log(Level.SEVERE,
+            Logger.getLogger(ActorFacade.class.getName()).log(Level.SEVERE,
                     "Unable to return add actors to database:", ex);
 
             return Response.ok(ERROR_MSG).build();

@@ -7,9 +7,9 @@ package com.company.rest.facades;
 
 import com.company.application.MovieManagmentController;
 import com.company.domain.MovieDTO;
-import com.sun.istack.internal.logging.Logger;
 import java.util.List;
 import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -43,7 +43,7 @@ public class MovieFacade {
 
         } catch (Exception e) {
 
-            Logger.getLogger(MovieFacade.class).log(Level.SEVERE,
+            Logger.getLogger(MovieFacade.class.getName()).log(Level.SEVERE,
                     "Unable to return list of movies to database:", e);
 
             return Response.ok(ERROR_MSG).build();
@@ -66,7 +66,7 @@ public class MovieFacade {
 
         } catch (Exception e) {
 
-            Logger.getLogger(MovieFacade.class).log(Level.SEVERE,
+            Logger.getLogger(MovieFacade.class.getName()).log(Level.SEVERE,
                     "Unable to return add movie to database:", e);
 
             return Response.ok(ERROR_MSG).build();
