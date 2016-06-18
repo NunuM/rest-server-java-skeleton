@@ -11,7 +11,7 @@ import com.company.app.settings.AppSettings;
  * <p>
  * works as a factory of factories
  *
- * @author Paulo Gandra Sousa
+ * @author nuno
  */
 public final class PersistenceContext {
 
