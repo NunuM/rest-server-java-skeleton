@@ -28,7 +28,7 @@ public final class PersistenceContext {
         try {
             return (RepositoryFactory) Class.forName(factoryClassName).newInstance();
         } catch (ClassNotFoundException | IllegalAccessException | InstantiationException ex) {
-            // FIXME handle exception properly
+            
             Logger.getLogger(PersistenceContext.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
