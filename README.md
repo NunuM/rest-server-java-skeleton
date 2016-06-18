@@ -13,8 +13,8 @@ Feel free to use this rest java skeleton. Sometimes is hard to make depencencies
 
 ##Run
 
-If you dont't use netbeans, but have maven, enter in project folder, run the command: mvn package
-Enter in target/app/ folder and run java -jar app.jar
+- If you dont't use netbeans, but have maven, enter in project folder, run the command: mvn package
+- Enter in target/app/ folder and run java -jar app.jar
 
 
 ##Example
