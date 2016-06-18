@@ -1,4 +1,4 @@
-# rest-server-java-skeleton
+# rest server java skeleton
 Rest server in JAVA, using JERSEY and JAX-RS, persistence implemented in JPA
 
 Feel free to use this rest java skeleton. Sometimes is hard to make depencencies right in java world along other litlle frameworks details.
