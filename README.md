@@ -1,5 +1,5 @@
 # rest server java skeleton
-Rest server in JAVA, using JERSEY and JAX-RS, persistence implemented in JPA
+Rest server in JAVA, using JERSEY and JAX-RS, persistence implemented in JPA. Also Swagger in a non-servlet environment
 
 Feel free to use this rest java skeleton. Sometimes is hard to make depencencies right in java world along other litlle frameworks details.
 
@@ -13,10 +13,23 @@ Feel free to use this rest java skeleton. Sometimes is hard to make depencencies
 
 ##Run
 
-- If you dont't use netbeans, but have maven, enter in project folder, run the command: mvn package
-- Enter in target/app/ folder and run: java -jar app.jar
+- If you dont't use netbeans, but have maven, enter in project folder, run the command:
 
+ ```
+  mvn package
+ ```
+
+- Enter in target/app/ folder and run:
+ ```
+ java -jar app.jar
+ ```
 
 ##Example
 
 Run the main and use your browser http://localhost:8080/actor you will see the result.
+
+Swagger:
+
+```
+http://0.0.0.0:8080/swagger/swagger.json
+```

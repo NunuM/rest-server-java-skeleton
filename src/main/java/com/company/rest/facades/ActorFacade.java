@@ -7,6 +7,8 @@ package com.company.rest.facades;
 
 import com.company.application.ActorManagementController;
 import com.company.domain.ActorDTO;
+import io.swagger.annotations.Api;
+
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -23,6 +25,7 @@ import javax.ws.rs.core.Response;
  *
  * @author nuno
  */
+@Api("actor")
 @Path("actor")
 public class ActorFacade {
 

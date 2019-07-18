@@ -1,29 +1,37 @@
 
-import com.company.app.settings.AppSettings;
 import com.company.application.ActorManagementController;
-import com.company.application.ApplicationRestConfig;
 import com.company.application.MovieManagmentController;
 import com.company.domain.Actor;
 import com.company.domain.ActorDTO;
 import com.company.domain.Movie;
 import com.company.domain.MovieDTO;
-import com.company.framework.RESTServer.HTTPRestServer;
+import org.glassfish.grizzly.http.server.HttpServer;
+import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
+import org.glassfish.jersey.logging.LoggingFeature;
+import org.glassfish.jersey.server.ResourceConfig;
+import org.glassfish.jersey.server.ServerProperties;
+import org.slf4j.bridge.SLF4JBridgeHandler;
+
+import java.net.URI;
 import java.util.Calendar;
+import java.util.Scanner;
 import java.util.logging.Level;
+import java.util.logging.LogManager;
 import java.util.logging.Logger;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 /**
  *
  * @author nuno
  */
 public class MovieApp {
 
+    public static final String BASE_URI = "http://0.0.0.0:8080";
+
     public static void main(String[] args) {
+
+        LogManager.getLogManager().reset();
+        SLF4JBridgeHandler.install();
 
         try {
 
@@ -67,18 +75,38 @@ public class MovieApp {
             // **************  end bootstrap *****************
             
             
-            
-            ApplicationRestConfig applicationRestConfig = new ApplicationRestConfig();
+            MovieApp.startServer();
 
-            new HTTPRestServer(AppSettings.getInstance().getServerURI(),
-                    AppSettings.getInstance().getServerPort())
-                    .startServer(applicationRestConfig);
+            System.out.println("Your server is running at: " + BASE_URI);
+
+            new Scanner(System.in).nextLine();
 
         } catch (Exception e) {
             System.out.println(e);
             Logger.getLogger(MovieApp.class.getName()).log(Level.SEVERE, "Something went wrong ", e);
         }
 
+    }
+
+
+    private static HttpServer startServer() {
+
+        // create a resource config that scans for JAX-RS resources and providers
+        // in com.company.rest.facades package
+        final ResourceConfig rc = new ResourceConfig().packages("com.company.rest.facades");
+
+        rc.register(io.swagger.jaxrs.listing.SwaggerSerializers.class);
+
+        rc.property(LoggingFeature.LOGGING_FEATURE_VERBOSITY, LoggingFeature.Verbosity.PAYLOAD_ANY);
+        rc.property(LoggingFeature.LOGGING_FEATURE_LOGGER_LEVEL, Level.INFO.getName());
+
+        rc.property(ServerProperties.BV_SEND_ERROR_IN_RESPONSE, true);
+
+        rc.property(ServerProperties.MONITORING_STATISTICS_ENABLED, true);
+
+        // create and start a new instance of grizzly http server
+        // exposing the Jersey application at BASE_URI
+        return GrizzlyHttpServerFactory.createHttpServer(URI.create(BASE_URI), rc);
     }
 
 }

@@ -7,6 +7,8 @@ package com.company.rest.facades;
 
 import com.company.application.MovieManagmentController;
 import com.company.domain.MovieDTO;
+import io.swagger.annotations.Api;
+
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -23,6 +25,7 @@ import javax.ws.rs.core.Response;
  *
  * @author nuno
  */
+@Api("movie")
 @Path("movie")
 public class MovieFacade {
 

@@ -10,6 +10,7 @@ import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.util.Iterator;
 import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * An utility abstract class for implementing JPA repositories.
@@ -35,7 +36,9 @@ public abstract class JpaRepository<T, K extends Serializable>
     private static EntityManagerFactory emFactory;
     private static int DEFAULT_PAGESIZE = 20;
     private final Class<T> entityClass;
-    private EntityManager _entityManager;
+
+    private ConcurrentHashMap<String, EntityManager> manager = new ConcurrentHashMap<>();
+
 
     @SuppressWarnings("unchecked")
     public JpaRepository() {
@@ -51,10 +54,17 @@ public abstract class JpaRepository<T, K extends Serializable>
     }
 
     protected EntityManager entityManager() {
-        if (_entityManager == null || !_entityManager.isOpen()) {
-            _entityManager = entityManagerFactory().createEntityManager();
+
+        final String tName = Thread.currentThread().getName();
+
+        EntityManager entityManager = this.manager.get(tName);
+
+        if (entityManager == null || !entityManager.isOpen()) {
+            entityManager = entityManagerFactory().createEntityManager();
+            this.manager.put(tName, entityManager);
         }
-        return _entityManager;
+
+        return entityManager;
     }
 
     /**
