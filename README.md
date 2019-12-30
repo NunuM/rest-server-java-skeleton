@@ -8,7 +8,7 @@ Rest server in JAVA, using JERSEY and JAX-RS, persistence implemented in JPA and
 
 - The persistence is decoupled from the database, you can save your data on every database you want, in AppSettings is declarated the Repository factory that PersistenceContext instantiates in runtime using reflection.
 
-- The database in use is [H2](https://www.h2database.com/html/main.html), which we can use as a volatile database because it has the option to run in [memory](https://github.com/NunuM/rest-server-java-skeleton/blob/master/src/main/resources/META-INF/persistence.xml#L13), in other words, each application shutdows erases all the data. This can be modified by changing the [jdbc database connection string](https://alvinalexander.com/java/jdbc-connection-string-mysql-postgresql-sqlserver)
+- The database in use is [H2](https://www.h2database.com/html/main.html), which we can use as a volatile database because it has the option to run in [memory](https://github.com/NunuM/rest-server-java-skeleton/blob/master/src/main/resources/META-INF/persistence.xml#L13), in other words, each application shutdown erases all the data. This can be modified by changing the [jdbc database connection string](https://alvinalexander.com/java/jdbc-connection-string-mysql-postgresql-sqlserver)
 
 - The Javax Persistence implementation is provided by the [eclipse link](https://www.eclipse.org/eclipselink/documentation/2.7/)
 
