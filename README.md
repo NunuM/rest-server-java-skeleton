@@ -1,4 +1,4 @@
-# REST Server in Java - Starter Pack
+# REST Server in Java - Starter Application
 
 Rest server in JAVA, using JERSEY and JAX-RS, persistence implemented in JPA and also Swagger for auto-generated documentation in a non-servlet environment making this application is an excellent starting point to build your application.
 
