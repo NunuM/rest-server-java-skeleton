@@ -1,4 +1,5 @@
 
+import com.company.app.settings.AppSettings;
 import com.company.application.ActorManagementController;
 import com.company.application.MovieManagmentController;
 import com.company.domain.Actor;
@@ -21,42 +22,42 @@ import java.util.logging.Logger;
 
 
 /**
- *
  * @author nuno
  */
 public class MovieApp {
 
-    public static final String BASE_URI = "http://0.0.0.0:8080";
+    private static final String BASE_URI = String.format("%s:%s", AppSettings.getInstance().getServerURI(), AppSettings.getInstance().getServerPort());
 
     public static void main(String[] args) {
 
+        // Uniform logging
         LogManager.getLogManager().reset();
         SLF4JBridgeHandler.install();
 
         try {
 
             // **************  Some bootstrap *****************
-            
+
             Actor actress1 = new Actor("Megan Fox");
             ActorDTO actress1DTO = actress1.toDTO(null);
 
             Actor actress2 = new Actor("Emma Watson");
             ActorDTO actress2DTO = actress2.toDTO(null);
 
-            
+
             Actor actress3 = new Actor("Jessica Alba");
             ActorDTO actress3DTO = actress3.toDTO(null);
-         
+
             ActorManagementController actorManagementController = new ActorManagementController();
-            
+
             actorManagementController.addNewActor(actress3DTO);
             actorManagementController.addNewActor(actress2DTO);
             actorManagementController.addNewActor(actress1DTO);
-            
+
             //---
             MovieManagmentController movieManagmentController = new MovieManagmentController();
 
-           
+
             Calendar nowDate = Calendar.getInstance();
 
             Movie movie = new Movie("Teenage Mutant Ninja Turtles: Out of the Shadows", nowDate);
@@ -65,16 +66,15 @@ public class MovieApp {
 
             movieManagmentController.addNewMovie(movieDTO);
 
-           
-            
+
             Movie movie1 = new Movie("The Amazing Spider-Man", Calendar.getInstance());
             MovieDTO movie1DTO = movie1.toDTO(null);
 
             movieManagmentController.addNewMovie(movie1DTO);
 
             // **************  end bootstrap *****************
-            
-            
+
+
             MovieApp.startServer();
 
             System.out.println("Your server is running at: " + BASE_URI);
@@ -82,7 +82,6 @@ public class MovieApp {
             new Scanner(System.in).nextLine();
 
         } catch (Exception e) {
-            System.out.println(e);
             Logger.getLogger(MovieApp.class.getName()).log(Level.SEVERE, "Something went wrong ", e);
         }
 
